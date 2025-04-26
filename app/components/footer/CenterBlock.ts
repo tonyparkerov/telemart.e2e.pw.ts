@@ -1,13 +1,6 @@
 import BaseComponent from "../BaseComponent";
 
-enum SocialNetworks {
-  Facebook = "fb",
-  Instagram = "in",
-  TikTok = "tiktok",
-  YouTube = "youtube",
-  Telegram = "tg",
-  Discord = "discord",
-}
+type SocialNetwork = "fb" | "in" | "tiktok" | "youtube" | "tg" | "discord";
 
 export default class CenterBlock extends BaseComponent {
   private root = this.page.locator(".footer-center");
@@ -20,13 +13,13 @@ export default class CenterBlock extends BaseComponent {
     await this.PCConfiguratorButtonLocator.click();
   }
 
-  private getSocialLocator = (socialNetwork: SocialNetworks) =>
+  getSocialLocator = (socialNetwork: SocialNetwork) =>
     this.root.locator(`.footer-social__item_${socialNetwork}`);
 
-  private getSocialLink = async (socialNetwork: SocialNetworks) =>
+  private getSocialLink = async (socialNetwork: SocialNetwork) =>
     await this.getSocialLocator(socialNetwork).getAttribute("href");
 
-  private async openSocial(socialNetwork: SocialNetworks) {
+  private async openSocial(socialNetwork: SocialNetwork) {
     await this.getSocialLocator(socialNetwork).click();
   }
 }
