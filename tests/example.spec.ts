@@ -1,10 +1,19 @@
-import { test, expect } from "@playwright/test";
-import MainPage from "../app/pages/MainPage";
-import FooterComponent from "../app/components/FooterComponent";
+import { test, expect } from "../app/fixtures/fixture";
+import { SocialNetwork } from "../app/types/types";
 
-test("has title", async ({ page }) => {
-  const mainPage = new MainPage(page);
-  const footer = new FooterComponent(page);
-  await mainPage.goto();
-  await footer.centerBlock.getSocialLocator("in").click();
-});
+const socialNetworks: SocialNetwork[] = [
+  "fb",
+  "in",
+  "tiktok",
+  "youtube",
+  "tg",
+  "discord",
+];
+
+for (const social of socialNetworks) {
+  test(`Social network ${social} opened in new tab`, async ({ app }) => {
+    const link = await app.footer.centerBlock.getSocialLink(social);
+    const newTab = await app.footer.centerBlock.openSocial(social);
+    await expect(newTab).toHaveURL(link);
+  });
+}

@@ -1,6 +1,5 @@
+import { SocialNetwork } from "../../types/types";
 import BaseComponent from "../BaseComponent";
-
-type SocialNetwork = "fb" | "in" | "tiktok" | "youtube" | "tg" | "discord";
 
 export default class CenterBlock extends BaseComponent {
   private root = this.page.locator(".footer-center");
@@ -13,13 +12,22 @@ export default class CenterBlock extends BaseComponent {
     await this.PCConfiguratorButtonLocator.click();
   }
 
-  getSocialLocator = (socialNetwork: SocialNetwork) =>
+  private getSocialLocator = (socialNetwork: SocialNetwork) =>
     this.root.locator(`.footer-social__item_${socialNetwork}`);
 
-  private getSocialLink = async (socialNetwork: SocialNetwork) =>
-    await this.getSocialLocator(socialNetwork).getAttribute("href");
+  async getSocialLink(socialNetwork: SocialNetwork) {
+    const socialLink = await this.getSocialLocator(socialNetwork).getAttribute(
+      "href"
+    );
+    if (socialLink) {
+      return socialLink;
+    } else throw new Error("Can't get link from href attribute");
+  }
 
-  private async openSocial(socialNetwork: SocialNetwork) {
+  async openSocial(socialNetwork: SocialNetwork) {
     await this.getSocialLocator(socialNetwork).click();
+    const pagePromise = this.page.waitForEvent("popup");
+    const newTab = await pagePromise;
+    return newTab;
   }
 }
