@@ -1,5 +1,5 @@
 import { SocialNetwork } from "../../types/types";
-import BaseComponent from "../BaseComponent";
+import BaseComponent from "../../components/BaseComponent";
 
 export default class CenterBlock extends BaseComponent {
   private root = this.page.locator(".footer-center");
