@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Cookie, Page } from "@playwright/test";
 import FooterComponent from "./components/FooterComponent";
 import MainPage from "./pages/MainPage";
 import Modals from "./modals/Modals";
@@ -18,5 +18,13 @@ export default class Application {
 
   waitForResponse(url: string) {
     return this.page.waitForResponse(url);
+  }
+
+  async setCookies(cookie: Cookie[]) {
+    await this.page.context().addCookies(cookie);
+  }
+
+  async getCookies() {
+    await this.page.context().cookies();
   }
 }
