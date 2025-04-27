@@ -1,4 +1,4 @@
-import BaseComponent from "../BaseComponent";
+import BaseComponent from "../../components/BaseComponent";
 
 export default class SubscribeBlock extends BaseComponent {
   private root = this.page.locator(".subscribe-block");
