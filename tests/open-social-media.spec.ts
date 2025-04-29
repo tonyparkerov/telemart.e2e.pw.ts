@@ -1,4 +1,4 @@
-import { test, expect } from "../app/fixtures/fixture";
+import { test, expect } from "@fixtures/fixture";
 import { SocialNetwork } from "../app/types/types";
 
 const socialNetworks: SocialNetwork[] = [
