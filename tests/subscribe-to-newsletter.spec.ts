@@ -1,4 +1,4 @@
-import { test, expect } from "../app/fixtures/fixture";
+import { test, expect } from "@fixtures/fixture";
 import { faker } from "@faker-js/faker";
 
 test("Subscribe to newsletter", async ({ app }) => {

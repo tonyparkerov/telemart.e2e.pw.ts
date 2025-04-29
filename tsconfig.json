@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@tests/*": ["tests/*"],
+      "@components/*": ["app/components/*"],
+      "@fixtures/*": ["app/fixtures/*"],
+      "@modals/*": ["app/modals/*"],
+      "@pages/*": ["app/pages/*"],
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "playwright-report", "test-results", "dist"]
+}

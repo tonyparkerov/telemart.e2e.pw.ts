@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tonyparkerov/telemart.e2e.pw.ts.git"
@@ -11,14 +14,21 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/tonyparkerov/telemart.e2e.pw.ts/issues"
   },
   "homepage": "https://github.com/tonyparkerov/telemart.e2e.pw.ts#readme",
   "devDependencies": {
+    "@eslint/js": "^9.25.1",
     "@faker-js/faker": "^9.7.0",
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.14.1"
+    "@types/node": "^22.14.1",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-playwright": "^1.0.0",
+    "globals": "^14.0.0",
+    "typescript": "^5.8.3"
   }
 }
