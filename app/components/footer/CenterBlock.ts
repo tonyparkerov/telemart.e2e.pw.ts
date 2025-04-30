@@ -1,4 +1,4 @@
-import { SocialNetwork } from "../../types/types";
+import { SocialNetwork } from "@types";
 import BaseComponent from "../../components/BaseComponent";
 
 export default class CenterBlock extends BaseComponent {
