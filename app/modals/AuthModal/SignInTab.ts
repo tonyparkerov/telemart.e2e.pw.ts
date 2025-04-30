@@ -1,11 +1,5 @@
 import BaseModal from "../BaseModal";
-
-type SignInOption = "email" | "phone";
-type SignInData = {
-  email?: string;
-  phone?: string;
-  password?: string;
-};
+import { SignInOption, SignInData } from "@types";
 
 export default class SignInTab extends BaseModal {
   private tabLocator = this.page.locator("#authItem1[role='tabpanel']");

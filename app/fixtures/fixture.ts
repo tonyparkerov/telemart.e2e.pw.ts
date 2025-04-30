@@ -1,4 +1,4 @@
-import { test as base, defineConfig } from "@playwright/test";
+import { test as base } from "@playwright/test";
 import Application from "../Application";
 
 type MyFixtures = {
