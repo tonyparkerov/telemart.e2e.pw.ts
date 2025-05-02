@@ -28,5 +28,6 @@ export default class SignInTab extends BaseModal {
       await this.passwordInputLocator.fill(signInData.password);
     }
     await this.signInButtonLocator.click();
+    await this.page.waitForResponse("**/user/sign-in/login/");
   }
 }

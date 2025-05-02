@@ -17,7 +17,6 @@
       "@fixtures/*": ["app/fixtures/*"],
       "@modals/*": ["app/modals/*"],
       "@pages/*": ["app/pages/*"],
-      "@types/*": ["app/types/*"],
       "@types": ["app/types"]
     }
   },
