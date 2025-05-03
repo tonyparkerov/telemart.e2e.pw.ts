@@ -28,4 +28,8 @@ export default class Application {
   async getCookies() {
     await this.page.context().cookies();
   }
+
+  async goto(path = "") {
+    await this.page.goto(`${path}`);
+  }
 }
