@@ -1,5 +1,6 @@
 import { test as base } from "@playwright/test";
-import Application from "../Application";
+import Application from "@app/Application";
+import { authFilePath, defaultCityCookie } from "@app/constants";
 
 type MyFixtures = {
   app: Application;
@@ -9,22 +10,22 @@ type MyFixtures = {
 export const test = base.extend<MyFixtures>({
   app: async ({ page }, use) => {
     const app = new Application(page);
-    await app.setCookies([
-      { name: "geo_id_city", value: "1360", url: "https://telemart.ua/ua" },
-    ]);
+    await app.setCookies([defaultCityCookie]);
     await app.mainPage.goto();
 
     await use(app);
   },
 
-  signedInApp: async ({ app }, use) => {
-    await app.header.openAuthModal();
-    await app.modals.authModal.signInTab.signInWith("email", {
-      email: process.env.EMAIL,
-      password: process.env.PASSWORD,
+  signedInApp: async ({ browser }, use) => {
+    const context = await browser.newContext({
+      storageState: authFilePath,
     });
+    const page = await context.newPage();
+    const app = new Application(page);
+    await app.mainPage.goto();
 
     await use(app);
+    await context.close();
   },
 });
 export { expect } from "@playwright/test";

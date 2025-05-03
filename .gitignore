@@ -7,4 +7,4 @@ node_modules/
 /playwright/.cache/
 .vscode/
 .env
-app/.auth/
+.auth/

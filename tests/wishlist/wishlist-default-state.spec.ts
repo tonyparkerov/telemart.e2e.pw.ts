@@ -1,13 +1,7 @@
 import { test, expect } from "@fixtures/fixture";
 
-test("Wishlist default state", async ({ signedInApp, page }) => {
-  // await signedInApp.wishListPage.goto();
-  // const wishListDefaultTitle = await signedInApp.wishListPage.getListTitle();
-  // const wishListItemsCount = await signedInApp.wishListPage.getItemsCount();
-
-  // expect(wishListDefaultTitle).toBe("Мій список");
-  // expect(wishListItemsCount).toBe(0);
-  await page.goto("/consoles/");
+test("Wishlist default state", async ({ signedInApp }) => {
+  await signedInApp.goto("/consoles/");
   const allItems = await signedInApp.catalogList.getAllItems();
   const firstItemName = await allItems[0].getItemName();
   const firstItemCode = await allItems[0].getItemCode();

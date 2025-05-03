@@ -12,8 +12,8 @@ const socialNetworks: SocialNetwork[] = [
 
 for (const social of socialNetworks) {
   test(`Social network ${social} opened in new tab`, async ({ app }) => {
-    const link = await app.footer.centerBlock.getSocialLink(social);
-    const newTab = await app.footer.centerBlock.openSocial(social);
+    const link = await app.mainPage.footer.centerBlock.getSocialLink(social);
+    const newTab = await app.mainPage.footer.centerBlock.openSocial(social);
     await expect(newTab).toHaveURL(link);
   });
 }

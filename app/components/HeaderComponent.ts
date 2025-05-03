@@ -1,6 +1,6 @@
-import BaseComponent from "./BaseComponent";
+import { BaseComponent } from "@components";
 
-export default class HeaderComponent extends BaseComponent {
+export class HeaderComponent extends BaseComponent {
   private root = this.page.locator("header.header");
   private searchInputLocator = this.root.locator("input[name='search_que']");
   private submitSearchButton = this.root.locator("button.search__btn");
@@ -9,7 +9,12 @@ export default class HeaderComponent extends BaseComponent {
   private comparisonButtonLocator = this.root.locator("a.btn_comparison");
   private basketButtonLocator = this.root.locator("button.header-basket");
 
-  async openAuthModal() {
+  async clickUserProfileButton() {
     await this.userButtonLocator.click();
+  }
+
+  async searchFor(searchQuery: string) {
+    await this.searchInputLocator.fill(searchQuery);
+    await this.submitSearchButton.click();
   }
 }

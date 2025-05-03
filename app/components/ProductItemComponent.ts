@@ -1,7 +1,7 @@
-import { Locator } from "@playwright/test";
-import BaseComponent from "./BaseComponent";
+import type { Locator } from "@playwright/test";
+import { BaseComponent } from "@components";
 
-export default class ProductItemComponent extends BaseComponent {
+export class ProductItemComponent extends BaseComponent {
   private root: Locator;
   private itemNameLocator: Locator;
   private itemCodeLocator: Locator;

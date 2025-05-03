@@ -1,4 +1,4 @@
-import BaseComponent from "../../components/BaseComponent";
+import { BaseComponent } from "@components";
 
 export default class SubscribeBlock extends BaseComponent {
   private root = this.page.locator(".subscribe-block");
@@ -8,7 +8,10 @@ export default class SubscribeBlock extends BaseComponent {
   );
 
   async subscribeToNewsletter(email: string) {
+    const responsePromise = this.page.waitForResponse("**/site/subscribe/");
     await this.emailInputLocator.fill(email);
     await this.subscribeButtonLocator.click();
+    const response = await responsePromise;
+    return response;
   }
 }

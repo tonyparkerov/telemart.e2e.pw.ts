@@ -1,4 +1,4 @@
-import AuthModal from "./AuthModal/AuthModal";
+import AuthModal from "./AuthModal";
 import BaseModal from "./BaseModal";
 import ThanksModal from "./ThanksModal";
 

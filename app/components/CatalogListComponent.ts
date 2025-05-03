@@ -1,7 +1,6 @@
-import BaseComponent from "./BaseComponent";
-import ProductItemComponent from "./ProductItemComponent";
+import { BaseComponent, ProductItemComponent } from "@components";
 
-export default class CatalogListComponent extends BaseComponent {
+export class CatalogListComponent extends BaseComponent {
   private itemLocator = this.page.locator(".product-item");
 
   async getAllItems() {
