@@ -30,7 +30,7 @@ jobs:
       run: npx playwright test
       env:
         EMAIL: ${{ vars.EMAIL }}
-        PASSWORD: ${{ vars.EMAIL }}
+        PASSWORD: ${{ vars.PASSWORD }}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
