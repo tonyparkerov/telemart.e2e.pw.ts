@@ -8,12 +8,12 @@ This project implements automated end-to-end tests for the Telemart e-commerce p
 
 ## 🛠️ Tech Stack
 
-- ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) [TypeScript](https://www.typescriptlang.org/) - Strongly typed programming language
-- ![Playwright](https://img.shields.io/badge/-Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white) [Playwright](https://playwright.dev/) - End-to-end testing framework
-- ![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) [ESLint](https://eslint.org/) - Code quality and style enforcement
-- ![Faker.js](https://img.shields.io/badge/-Faker.js-5FA9EE?style=flat-square&logo=faker&logoColor=white) [Faker.js](https://fakerjs.dev/) - Test data generation
-- ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) [Node.js](https://nodejs.org/) - JavaScript runtime environment
-- ![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white) [npm](https://www.npmjs.com/) - Package manager
+- ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) Strongly typed programming language
+- ![Playwright](https://img.shields.io/badge/-Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white) End-to-end testing framework
+- ![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) Code quality and style enforcement
+- ![Faker.js](https://img.shields.io/badge/-Faker.js-5FA9EE?style=flat-square&logo=faker&logoColor=white) Test data generation
+- ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) JavaScript runtime environment
+- ![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white) Package manager
 
 ## 🚀 Getting Started
 
