@@ -3,9 +3,9 @@ import { BaseComponent } from "@components";
 
 export class ProductItemComponent extends BaseComponent {
   private root: Locator;
+  private label: Locator;
   private itemNameLocator: Locator;
   private itemCodeLocator: Locator;
-  private compareItemButtonLocator: Locator;
   private addToFavoritesButtonLocator: Locator;
   private removeFromFavoritesButtonLocator: Locator;
   private itemPriceLocator: Locator;
@@ -14,11 +14,9 @@ export class ProductItemComponent extends BaseComponent {
   constructor(root: Locator) {
     super(root.page());
     this.root = root;
+    this.label = this.page.locator(".product-label");
     this.itemNameLocator = this.root.locator(".product-item__title");
     this.itemCodeLocator = this.root.locator(".product-item__code > span");
-    this.compareItemButtonLocator = this.root.locator(
-      "button.hardevel_compare_add"
-    );
     this.addToFavoritesButtonLocator = this.root.locator(
       "button.hardevel_favorite_add"
     );
@@ -29,6 +27,10 @@ export class ProductItemComponent extends BaseComponent {
       ".product-item-cost-column > .product-cost"
     );
     this.addToCartButtonLocator = this.root.locator("button.add-to-cart");
+  }
+
+  async getLabelText() {
+    return await this.label.innerText();
   }
 
   async getItemName() {
