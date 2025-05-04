@@ -1,5 +1,8 @@
 # Telemart E2E Test Automation
 
+[![Playwright Tests](https://github.com/tonyparkerov/telemart.e2e.pw.ts/actions/workflows/playwright.yml/badge.svg)](https://github.com/tonyparkerov/telemart.e2e.pw.ts/actions/workflows/playwright.yml)
+[![Test Report](https://img.shields.io/badge/Test_Report-GitHub_Pages-blue?logo=github)](https://tonyparkerov.github.io/telemart.e2e.pw.ts/)
+
 A robust end-to-end test automation framework for [Telemart](https://telemart.ua/ua) using TypeScript and Playwright.
 
 ## 📋 Overview
@@ -108,6 +111,8 @@ The project includes tests for:
 ## 📊 Reporting
 
 Playwright generates HTML reports after test runs, available at `playwright-report/index.html`.
+
+The latest test report is also available online at [GitHub Pages](https://tonyparkerov.github.io/telemart.e2e.pw.ts/).
 
 ## 🧩 VS Code Integration
 

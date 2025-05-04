@@ -1,6 +1,7 @@
 import { test as base } from "@playwright/test";
 import Application from "@app/Application";
 import { authFilePath, defaultCityCookie } from "@app/constants";
+import { ProductCategoryPageFactory } from "@app/pages/ProductCategoryPageFactory";
 
 type MyFixtures = {
   app: Application;
@@ -12,6 +13,7 @@ export const test = base.extend<MyFixtures>({
     const app = new Application(page);
     await app.setCookies([defaultCityCookie]);
     await app.mainPage.goto();
+    app.newPage = new ProductCategoryPageFactory(page, "earphones");
 
     await use(app);
   },
