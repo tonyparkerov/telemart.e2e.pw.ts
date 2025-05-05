@@ -1,6 +1,6 @@
-import { BasePageWithCatalog } from "@pages/BasePageWithCatalog";
+import { PagesWithItemsList } from "@app/pages/PagesWithItemsList";
 
-export class SearchPage extends BasePageWithCatalog {
+export class SearchPage extends PagesWithItemsList {
   protected path = "/search";
   private searchHeader = this.page.locator(".page-main-header");
   private counter = this.page.locator(".page-main-header__counter");

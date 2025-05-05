@@ -1,9 +1,9 @@
 import { Page } from "@playwright/test";
-import { BasePageWithCatalog } from "./BasePageWithCatalog";
+import { PagesWithItemsList } from "./PagesWithItemsList";
 import { ProductFiltersComponent } from "@app/components/ProductFiltersComponent";
 import { ProductsCategories } from "@types";
 
-export class ProductCategoryPageFactory extends BasePageWithCatalog {
+export class ProductCategoryPageFactory extends PagesWithItemsList {
   protected path: string;
   filters: ProductFiltersComponent;
 

@@ -1,6 +1,6 @@
-import { BasePageWithCatalog } from "@pages/BasePageWithCatalog";
+import { PagesWithItemsList } from "@app/pages/PagesWithItemsList";
 
-export default class WishListPage extends BasePageWithCatalog {
+export default class WishListPage extends PagesWithItemsList {
   protected path = "/wish/index/";
   private listTitleLocator = this.page.locator(".order-item__title");
   private itemCounterLocator = this.page.locator(".order-item__title-counter");

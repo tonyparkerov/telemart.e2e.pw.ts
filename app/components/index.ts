@@ -1,5 +1,5 @@
 export * from "./BaseComponent";
-export * from "./CatalogListComponent";
+export * from "./ItemsListComponent";
 export * from "./FooterComponent";
 export * from "./HeaderComponent";
-export * from "./ProductItemComponent";
+export * from "./ItemComponent";

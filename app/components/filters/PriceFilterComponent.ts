@@ -38,9 +38,11 @@ export class PriceFilterComponent extends BaseComponent {
     await this.maxPriceInputLocator.fill(value.toString());
   }
 
-  async filterByPrice(min?: number, max?: number) {
-    if (min) await this.fillMinPriceInput(min);
-    if (max) await this.fillMinPriceInput(max);
+  async filterByPrice(options?: { min?: number; max?: number }) {
+    if (options) {
+      if (options.min) await this.fillMinPriceInput(options.min);
+      if (options.max) await this.fillMinPriceInput(options.max);
+    }
     await this.submitPriceFilterButtonLocator.click();
   }
 }
