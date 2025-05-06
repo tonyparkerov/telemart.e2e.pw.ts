@@ -4,8 +4,7 @@ import { faker } from "@faker-js/faker";
 test("Subscribe to newsletter", async ({ app }) => {
   const email = faker.internet.email();
 
-  const response =
-    await app.mainPage.footer.subscribeBlock.subscribeToNewsletter(email);
+  const response = await app.mainPage.footer.subscribeToNewsletter(email);
   const responseBody = await response.json();
 
   const thanksModalLocator = app.mainPage.modals.thanksModal.getModalLocator();

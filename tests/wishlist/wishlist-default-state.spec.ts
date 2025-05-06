@@ -1,7 +1,9 @@
 import { test, expect } from "@fixtures/fixture";
 
-test("Add random item to favorites", async ({ signedInApp }) => {
-  await signedInApp.goto("/consoles/");
+test("Add random console item to favorites", async ({ signedInApp }) => {
+  signedInApp.itemsPage.setCategory("iphone");
+  await signedInApp.itemsPage.goto();
+
   const randomItem = await signedInApp.searchPage.itemsList.getRandomItem();
   const itemCode = await randomItem.getCode();
   const itemName = await randomItem.getName();

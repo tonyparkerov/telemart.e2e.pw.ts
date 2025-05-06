@@ -17,6 +17,7 @@ This project implements automated end-to-end tests for the Telemart e-commerce p
 - ![Faker.js](https://img.shields.io/badge/-Faker.js-5FA9EE?style=flat-square&logo=faker&logoColor=white) Test data generation
 - ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) JavaScript runtime environment
 - ![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white) Package manager
+- ![CTRF](https://img.shields.io/badge/-CTRF-4A4A4A?style=flat-square&logo=json&logoColor=white) Test reporting in CI/CD
 
 ## 🚀 Getting Started
 
@@ -76,19 +77,32 @@ npm run lint:fix
 ```
 ├── app/                     # Page objects and application components
 │   ├── components/          # Reusable UI components
+│   │   ├── BaseComponent.ts # Abstract base class for all components
+│   │   ├── HeaderComponent.ts # Header component implementation
+│   │   └── ...              # Other component implementations
 │   ├── fixtures/            # Test fixtures
+│   │   └── fixture.ts       # Custom fixtures including app, signedInApp
 │   ├── modals/              # Modal dialog components
 │   ├── pages/               # Page objects
+│   │   ├── MainPage.ts      # Main page implementation
+│   │   ├── SearchPage.ts    # Search results page
+│   │   ├── WishListPage.ts  # Wishlist page
+│   │   └── ItemsPage.ts     # Product listing page
 │   ├── types/               # TypeScript types and interfaces
-│   ├── Application.ts       # Main application class
+│   ├── Application.ts       # Main application class with page management
 │   └── constants.ts         # Application constants and configuration
 ├── tests/                   # Test specifications
 │   ├── wishlist/            # Wishlist-related tests
+│   │   └── wishlist-default-state.spec.ts # Tests for wishlist functionality
 │   ├── search.spec.ts       # Search functionality tests
-│   └── ...                  # Other test files
+│   ├── subscribe-to-newsletter.spec.ts # Newsletter subscription tests
+│   └── open-social-media.spec.ts # Social media links tests
 ├── .auth/                   # Authentication state storage
+├── ctrf/                    # CTRF reporting configuration
 ├── global-setup.ts          # Global test setup (authentication)
-└── playwright.config.ts     # Playwright configuration
+├── playwright.config.ts     # Playwright configuration
+└── .github/workflows/       # GitHub Actions CI/CD configuration
+    └── playwright.yml       # Workflow for running tests and publishing reports
 ```
 
 ## 📋 Test Cases
@@ -103,22 +117,39 @@ The project includes tests for:
 ## 💡 Best Practices
 
 - **Page Object Model**: Each page is represented by a class with methods for interactions
+- **Component-Based Architecture**: UI elements are organized into reusable components
 - **Fixtures**: Custom fixtures for common test setups (signed-in state, etc.)
 - **Type Safety**: TypeScript interfaces for all objects and page models
 - **Reusable Components**: Common UI elements abstracted into reusable components
 - **Authentication Handling**: Pre-authenticated states for tests requiring login
+- **City Selection**: Default city cookie handling for consistent test environments
 
 ## 📊 Reporting
 
-Playwright generates HTML reports after test runs, available at `playwright-report/index.html`.
+The project now includes enhanced reporting features:
 
-The latest test report is also available online at [GitHub Pages](https://tonyparkerov.github.io/telemart.e2e.pw.ts/).
+- **HTML Reports**: Playwright generates HTML reports after test runs, available at `playwright-report/index.html`
+- **GitHub Pages Integration**: The latest test report is published automatically to GitHub Pages
+- **CTRF Reporting**: Integration with CTRF JSON reporter for standardized test result tracking in CI/CD
+- **GitHub Actions**: Automated test execution and report publishing on workflow dispatch
+
+The latest test report is available online at [GitHub Pages](https://tonyparkerov.github.io/telemart.e2e.pw.ts/).
 
 ## 🧩 VS Code Integration
 
 For an optimal development experience, install these VS Code extensions:
 - [Playwright Test for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+## 🔄 CI/CD Integration
+
+The project uses GitHub Actions for continuous integration:
+
+- Automated test runs triggered manually via workflow_dispatch
+- ESLint checks to ensure code quality
+- Test results published to GitHub Pages
+- CTRF reporting for standardized test result tracking
+- Artifact storage for test reports
 
 ## 📜 License
 

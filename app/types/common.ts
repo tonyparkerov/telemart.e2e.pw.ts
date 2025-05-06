@@ -1,4 +1,9 @@
-export type ProductsCategories = "earphones" | "iphone" | "monitors";
+export type ProductsCategories =
+  | "earphones"
+  | "iphone"
+  | "monitors"
+  | "consoles"
+  | "pc";
 
 export type SocialNetwork =
   | "fb"

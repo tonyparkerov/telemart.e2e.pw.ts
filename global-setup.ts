@@ -1,4 +1,5 @@
-import { chromium, type FullConfig } from "@playwright/test";
+/* eslint-disable no-console */
+import { chromium } from "@playwright/test";
 import fs from "fs";
 import Application from "@app/Application";
 import {
@@ -8,7 +9,7 @@ import {
   defaultUser,
 } from "@app/constants";
 
-async function globalSetup(config: FullConfig) {
+async function globalSetup() {
   console.log("Authentication...");
   if (!fs.existsSync(authFilePath)) {
     const browser = await chromium.launch();
