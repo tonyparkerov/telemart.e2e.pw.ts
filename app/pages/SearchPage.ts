@@ -5,7 +5,7 @@ export class SearchPage extends PagesWithItemsList {
   private searchHeader = this.page.locator(".page-main-header");
   private counter = this.page.locator(".page-main-header__counter");
 
-  async goto(searchQuery: string) {
+  async open(searchQuery: string) {
     const encodedSearchQuery = encodeURIComponent(searchQuery);
     await this.page.goto(`${this.path}/${encodedSearchQuery}`);
   }

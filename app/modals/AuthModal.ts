@@ -2,7 +2,7 @@ import BaseModal from "@modals/BaseModal";
 import { SignInOption, SignInData } from "@types";
 
 export default class AuthModal extends BaseModal {
-  private modalLocator = this.page.locator(".modal#modalCommonAuth");
+  protected modalLocator = this.page.locator(".modal#modalCommonAuth");
   private signInEmailOrPhoneInputLocator = this.modalLocator.locator(
     "input#loginform-identity"
   );

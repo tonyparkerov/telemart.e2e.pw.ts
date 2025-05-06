@@ -37,9 +37,19 @@ export default class WishListPage extends PagesWithItemsList {
     await this.renameListButtonLocator.click();
     await this.renameListInputLocator.fill(name);
     await this.submitRenameListButtonLocator.click();
+    await this.page.waitForResponse("**/summary/**");
   }
 
   async expandList() {
     await this.collapseToggleLocator.click();
+  }
+
+  async clearWishList() {
+    const allItems = await this.itemsList.getAllItems();
+    if (allItems.length) {
+      for (const item of allItems) {
+        await item.removeFromFavorites();
+      }
+    }
   }
 }

@@ -19,8 +19,11 @@ const socials: SocialNetwork[] = [
   "discord",
 ];
 
-for (const social of socials) {
-  test(`Social network ${social} opened in new tab`, async ({ app }) => {
+for (const [i, social] of socials.entries()) {
+  test(`#2.${i + 1}. Social network ${social} opened in new tab`, async ({
+    app,
+  }) => {
+    await app.mainPage.open();
     const newTab = await app.mainPage.footer.openSocial(social);
     expect(newTab.url()).toContain(expectedSocials[social]);
   });

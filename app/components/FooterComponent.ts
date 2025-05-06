@@ -17,7 +17,7 @@ export class FooterComponent extends BaseComponent {
     await this.subscribeEmailInputLocator.fill(email);
     await this.subscribeButtonLocator.click();
     const response = await responsePromise;
-    return response;
+    return await response.json();
   }
 
   async openSocial(socialNetwork: SocialNetwork) {

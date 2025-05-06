@@ -1,8 +1,13 @@
+import { Page } from "@playwright/test";
 import AuthModal from "./AuthModal";
-import BaseModal from "./BaseModal";
 import ThanksModal from "./ThanksModal";
 
-export default class Modals extends BaseModal {
-  thanksModal = new ThanksModal(this.page);
-  authModal = new AuthModal(this.page);
+export default class Modals {
+  thanksModal: ThanksModal;
+  authModal: AuthModal;
+
+  constructor(page: Page) {
+    this.thanksModal = new ThanksModal(page);
+    this.authModal = new AuthModal(page);
+  }
 }

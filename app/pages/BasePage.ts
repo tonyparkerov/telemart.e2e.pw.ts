@@ -16,7 +16,7 @@ export default abstract class BasePage {
     this.modals = new Modals(this.page);
   }
 
-  async goto(resource = "") {
+  async open(resource = "") {
     await this.page.goto(`${this.path}${resource}`);
   }
 }

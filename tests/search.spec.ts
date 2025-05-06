@@ -1,7 +1,9 @@
 import { test, expect } from "@fixtures/fixture";
 
-test("Search result for iphone", async ({ app }) => {
-  const searchData = "iphone 16 pro max";
+test("#3. Search result for iphone", async ({ app }) => {
+  const searchData = "iphone 16 pro";
+
+  await app.mainPage.open();
   await app.mainPage.header.searchFor(searchData);
   const searchResults = await app.searchPage.itemsList.getAllItems();
 

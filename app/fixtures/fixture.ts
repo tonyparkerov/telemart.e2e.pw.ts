@@ -12,7 +12,6 @@ export const test = base.extend<MyFixtures>({
   app: async ({ page }, use) => {
     const app = new Application(page);
     await app.setCookies([defaultCityCookie]);
-    await app.mainPage.goto();
 
     await use(app);
   },
@@ -23,7 +22,6 @@ export const test = base.extend<MyFixtures>({
     });
     const page = await context.newPage();
     const app = new Application(page);
-    await app.mainPage.goto();
 
     await use(app);
     await context.close();

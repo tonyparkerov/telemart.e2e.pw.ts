@@ -1,7 +1,7 @@
 import BaseModal from "./BaseModal";
 
 export default class ThanksModal extends BaseModal {
-  private modalLocator = this.page.locator("#modalThanks");
+  protected modalLocator = this.page.locator("#modalThanks");
   private modalIntroTextLocator =
     this.modalLocator.locator(".modal-intro-text");
 
