@@ -54,6 +54,7 @@ export class ItemComponent extends BaseComponent {
   }
 
   async getPrice() {
-    return await this.priceLocator.innerText();
+    const price = await this.priceLocator.innerText();
+    return parseInt(price.replace(/\D/g, ""));
   }
 }

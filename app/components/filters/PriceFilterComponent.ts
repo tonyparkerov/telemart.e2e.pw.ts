@@ -1,3 +1,4 @@
+import { expect } from "@playwright/test";
 import { BaseComponent } from "../BaseComponent";
 
 export class PriceFilterComponent extends BaseComponent {
@@ -41,8 +42,9 @@ export class PriceFilterComponent extends BaseComponent {
   async filterByPrice(options?: { min?: number; max?: number }) {
     if (options) {
       if (options.min) await this.fillMinPriceInput(options.min);
-      if (options.max) await this.fillMinPriceInput(options.max);
+      if (options.max) await this.fillMaxPriceInput(options.max);
     }
     await this.submitPriceFilterButtonLocator.click();
+    await expect(this.page.locator("#catalogList")).toBeVisible();
   }
 }
