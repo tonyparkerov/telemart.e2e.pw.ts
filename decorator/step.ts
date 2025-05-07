@@ -24,6 +24,11 @@ export function step<This, Args extends any[], Return>(message?: string) {
       (this: This, ...args: Args) => Promise<Return>
     >
   ) {
+    // Skip wrapping if the file is global-setup.ts
+    if (context.name === "globalSetup") {
+      return target;
+    }
+
     function replacementMethod(this: any, ...args: Args) {
       const name =
         message ?? `${this.constructor.name}.${context.name as string}`;
