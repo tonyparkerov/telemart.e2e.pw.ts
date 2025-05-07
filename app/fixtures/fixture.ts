@@ -12,6 +12,7 @@ export const test = base.extend<MyFixtures>({
   app: async ({ page }, use) => {
     const app = new Application(page);
     await app.setCookies([defaultCityCookie]);
+    await app.mainPage.open();
 
     await use(app);
   },
