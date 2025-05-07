@@ -1,6 +1,7 @@
-import { PagesWithItemsList } from "@app/pages/PagesWithItemsList";
+import { PagesWithItemsList } from "@pages/PagesWithItemsList";
+import { step } from "decorator/step";
 
-export default class WishListPage extends PagesWithItemsList {
+export class WishListPage extends PagesWithItemsList {
   protected path = "/wish/index/";
   private listTitleLocator = this.page.locator(".order-item__title");
   private itemCounterLocator = this.page.locator(".order-item__title-counter");
@@ -32,6 +33,7 @@ export default class WishListPage extends PagesWithItemsList {
     } else throw new Error("Unable to get items count");
   }
 
+  @step()
   async renameWishList(name: string) {
     await this.dropdownButtonLocator.click();
     await this.renameListButtonLocator.click();
@@ -40,10 +42,12 @@ export default class WishListPage extends PagesWithItemsList {
     await this.page.waitForResponse("**/summary/**");
   }
 
+  @step()
   async expandList() {
     await this.collapseToggleLocator.click();
   }
 
+  @step()
   async clearWishList() {
     const allItems = await this.itemsList.getAllItems();
     if (allItems.length) {

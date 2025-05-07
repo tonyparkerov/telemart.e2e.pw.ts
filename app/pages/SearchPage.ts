@@ -1,10 +1,12 @@
-import { PagesWithItemsList } from "@app/pages/PagesWithItemsList";
+import { PagesWithItemsList } from "@pages/PagesWithItemsList";
+import { step } from "decorator/step";
 
 export class SearchPage extends PagesWithItemsList {
   protected path = "/search";
   private searchHeader = this.page.locator(".page-main-header");
   private counter = this.page.locator(".page-main-header__counter");
 
+  @step()
   async open(searchQuery: string) {
     const encodedSearchQuery = encodeURIComponent(searchQuery);
     await this.page.goto(`${this.path}/${encodedSearchQuery}`);

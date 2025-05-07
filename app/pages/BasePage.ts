@@ -1,8 +1,9 @@
-import Modals from "@modals/Modals";
-import { FooterComponent, HeaderComponent } from "@components";
 import { Page } from "@playwright/test";
+import { Modals } from "@modals";
+import { FooterComponent, HeaderComponent } from "@components";
+import { step } from "decorator/step";
 
-export default abstract class BasePage {
+export abstract class BasePage {
   protected page: Page;
   protected abstract path: string;
   header: HeaderComponent;
@@ -16,6 +17,7 @@ export default abstract class BasePage {
     this.modals = new Modals(this.page);
   }
 
+  @step()
   async open(resource = "") {
     await this.page.goto(`${this.path}${resource}`);
   }

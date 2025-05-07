@@ -1,6 +1,9 @@
-import { BaseComponent } from "./BaseComponent";
-import { CheckBoxFilterComponent } from "./filters/CheckboxFilterComponent";
-import { PriceFilterComponent } from "./filters/PriceFilterComponent";
+import { step } from "decorator/step";
+import {
+  BaseComponent,
+  CheckBoxFilterComponent,
+  PriceFilterComponent,
+} from "@components";
 
 export class FiltersComponent extends BaseComponent {
   private root = this.page.locator(".form-filter");
@@ -17,6 +20,7 @@ export class FiltersComponent extends BaseComponent {
     ".filter-option-apply__btn"
   );
 
+  @step()
   async applyFilters() {
     await this.applyFiltersButtonLocator.click();
   }

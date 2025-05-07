@@ -1,6 +1,6 @@
-import BaseModal from "./BaseModal";
+import { BaseModal } from "@modals";
 
-export default class ThanksModal extends BaseModal {
+export class ThanksModal extends BaseModal {
   protected modalLocator = this.page.locator("#modalThanks");
   private modalIntroTextLocator =
     this.modalLocator.locator(".modal-intro-text");

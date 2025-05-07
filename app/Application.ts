@@ -1,9 +1,9 @@
 import { Page } from "@playwright/test";
-import MainPage from "@pages/MainPage";
+import { MainPage } from "@pages/MainPage";
+import { WishListPage } from "@pages/WishListPage";
+import { SearchPage } from "@pages/SearchPage";
+import { ItemsPage } from "@pages/ItemsPage";
 import { Cookie } from "@types";
-import WishListPage from "@pages/WishListPage";
-import { SearchPage } from "./pages/SearchPage";
-import { ItemsPage } from "./pages/ItemsPage";
 
 export default class Application {
   private page: Page;

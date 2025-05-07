@@ -1,4 +1,5 @@
 import { BaseComponent } from "@components";
+import { step } from "decorator/step";
 
 export class HeaderComponent extends BaseComponent {
   private root = this.page.locator(".header-center");
@@ -9,14 +10,17 @@ export class HeaderComponent extends BaseComponent {
   private comparisonButtonLocator = this.root.locator("a.btn_comparison");
   private basketButtonLocator = this.root.locator("button.header-basket");
 
+  @step()
   async clickUserProfileButton() {
     await this.userButtonLocator.click();
   }
 
+  @step()
   async clickFavoriteButton() {
     await this.favoriteButtonLocator.click();
   }
 
+  @step()
   async searchFor(searchQuery: string) {
     await this.searchInputLocator.fill(searchQuery);
     await this.submitSearchButton.click();

@@ -1,6 +1,7 @@
 import { Locator, Page } from "@playwright/test";
+import { step } from "decorator/step";
 
-export default abstract class BaseModal {
+export abstract class BaseModal {
   protected page: Page;
   protected abstract modalLocator: Locator;
 
@@ -10,5 +11,10 @@ export default abstract class BaseModal {
 
   getModalLocator() {
     return this.modalLocator;
+  }
+
+  @step()
+  async closeModal() {
+    await this.modalLocator.locator("button.btn-close").click();
   }
 }

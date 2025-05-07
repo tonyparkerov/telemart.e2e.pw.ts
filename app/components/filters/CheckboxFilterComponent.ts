@@ -1,5 +1,6 @@
 import { Locator, Page } from "@playwright/test";
-import { BaseComponent } from "../BaseComponent";
+import { BaseComponent } from "@components";
+import { step } from "decorator/step";
 
 export class CheckBoxFilterComponent extends BaseComponent {
   private root: Locator;
@@ -25,10 +26,12 @@ export class CheckBoxFilterComponent extends BaseComponent {
     return result;
   }
 
+  @step()
   async selectCheckbox(value: string) {
     await this.root.getByText(value).click();
   }
 
+  @step()
   async selectRandomCheckbox() {
     const values = await this.getAllCheckboxValues();
     const randomIndex = Math.floor(Math.random() * values.length);

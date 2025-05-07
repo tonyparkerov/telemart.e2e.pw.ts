@@ -1,6 +1,6 @@
-import { ItemsListComponent } from "@app/components";
-import { FiltersComponent } from "@app/components/ProductFiltersComponent";
-import BasePage from "@pages/BasePage";
+import { ItemsListComponent, FiltersComponent } from "@components";
+import { BasePage } from "@pages/BasePage";
+import { step } from "decorator/step";
 
 export abstract class PagesWithItemsList extends BasePage {
   protected abstract path: string;
@@ -14,6 +14,7 @@ export abstract class PagesWithItemsList extends BasePage {
     return await this.loadMoreButtonLocator.isVisible();
   }
 
+  @step()
   async loadAllMore() {
     while (this.isLoadMoreButtonVisible()) {
       await this.loadMore();

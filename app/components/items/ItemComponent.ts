@@ -1,5 +1,6 @@
 import type { Locator } from "@playwright/test";
 import { BaseComponent } from "@components";
+import { step } from "decorator/step";
 
 export class ItemComponent extends BaseComponent {
   private root: Locator;
@@ -41,16 +42,20 @@ export class ItemComponent extends BaseComponent {
     return await this.codeLocator.innerText();
   }
 
+  @step()
   async addToFavorites() {
     await this.addToFavoritesButtonLocator.click();
   }
 
+  @step()
   async removeFromFavorites() {
     await this.removeFromFavoritesButtonLocator.click();
   }
 
+  @step()
   async addToCart() {
     await this.addToCartButtonLocator.click();
+    await this.page.waitForResponse("**/cart/update-product/");
   }
 
   async getPrice() {

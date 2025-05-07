@@ -1,7 +1,8 @@
-import BaseModal from "@modals/BaseModal";
+import { BaseModal } from "@modals";
 import { SignInOption, SignInData } from "@types";
+import { step } from "decorator/step";
 
-export default class AuthModal extends BaseModal {
+export class AuthModal extends BaseModal {
   protected modalLocator = this.page.locator(".modal#modalCommonAuth");
   private signInEmailOrPhoneInputLocator = this.modalLocator.locator(
     "input#loginform-identity"
@@ -18,6 +19,7 @@ export default class AuthModal extends BaseModal {
     name: "Увійти",
   });
 
+  @step()
   async signInWith(signInOption: SignInOption, signInData: SignInData) {
     const option =
       signInOption === "email" ? signInData.email : signInData.phone;

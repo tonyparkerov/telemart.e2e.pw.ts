@@ -1,5 +1,6 @@
 import { SocialNetwork } from "@types";
 import { BaseComponent } from "@components";
+import { step } from "decorator/step";
 
 export class FooterComponent extends BaseComponent {
   private root = this.page.locator(".footer");
@@ -12,6 +13,7 @@ export class FooterComponent extends BaseComponent {
   private getSocialLocator = (socialNetwork: SocialNetwork) =>
     this.root.locator(`.footer-social__item_${socialNetwork}`);
 
+  @step()
   async subscribeToNewsletter(email: string) {
     const responsePromise = this.page.waitForResponse("**/site/subscribe/");
     await this.subscribeEmailInputLocator.fill(email);
@@ -20,6 +22,7 @@ export class FooterComponent extends BaseComponent {
     return await response.json();
   }
 
+  @step()
   async openSocial(socialNetwork: SocialNetwork) {
     await this.getSocialLocator(socialNetwork).click();
     const pagePromise = this.page.waitForEvent("popup");

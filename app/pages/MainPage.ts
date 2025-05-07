@@ -1,5 +1,5 @@
-import BasePage from "./BasePage";
+import { BasePage } from "@pages/BasePage";
 
-export default class MainPage extends BasePage {
+export class MainPage extends BasePage {
   protected path = "/";
 }

@@ -1,6 +1,6 @@
-import { ProductsCategories } from "@types";
-import { PagesWithItemsList } from "./PagesWithItemsList";
 import { Page } from "@playwright/test";
+import { ProductsCategories } from "@types";
+import { PagesWithItemsList } from "@pages/PagesWithItemsList";
 
 export class ItemsPage extends PagesWithItemsList {
   path: string;

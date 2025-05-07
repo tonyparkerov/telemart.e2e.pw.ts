@@ -17,7 +17,6 @@ This project implements automated end-to-end tests for the Telemart e-commerce p
 - ![Faker.js](https://img.shields.io/badge/-Faker.js-5FA9EE?style=flat-square&logo=faker&logoColor=white) Test data generation
 - ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) JavaScript runtime environment
 - ![npm](https://img.shields.io/badge/-npm-CB3837?style=flat-square&logo=npm&logoColor=white) Package manager
-- ![CTRF](https://img.shields.io/badge/-CTRF-4A4A4A?style=flat-square&logo=json&logoColor=white) Test reporting in CI/CD
 
 ## 🚀 Getting Started
 
@@ -92,13 +91,14 @@ npm run lint:fix
 │   ├── Application.ts       # Main application class with page management
 │   └── constants.ts         # Application constants and configuration
 ├── tests/                   # Test specifications
-│   ├── wishlist/            # Wishlist-related tests
-│   │   └── wishlist-default-state.spec.ts # Tests for wishlist functionality
-│   ├── search.spec.ts       # Search functionality tests
+│   ├── basket/             # Shopping basket related tests
+│   ├── filters/            # Product filter tests
+│   │   └── manufacturer-filter.spec.ts # Manufacturer filter tests
+│   ├── wishlist-page/      # Wishlist-related tests
+│   ├── search.spec.ts      # Search functionality tests
 │   ├── subscribe-to-newsletter.spec.ts # Newsletter subscription tests
 │   └── open-social-media.spec.ts # Social media links tests
 ├── .auth/                   # Authentication state storage
-├── ctrf/                    # CTRF reporting configuration
 ├── global-setup.ts          # Global test setup (authentication)
 ├── playwright.config.ts     # Playwright configuration
 └── .github/workflows/       # GitHub Actions CI/CD configuration
@@ -113,6 +113,8 @@ The project includes tests for:
 - Newsletter subscription
 - Social media links
 - Authentication flows
+- Product filtering
+- Shopping basket operations
 
 ## 💡 Best Practices
 

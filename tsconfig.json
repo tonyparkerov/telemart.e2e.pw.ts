@@ -15,7 +15,7 @@
       "@tests/*": ["tests/*"],
       "@components/*": ["app/components/*"],
       "@fixtures/*": ["app/fixtures/*"],
-      "@modals/*": ["app/modals/*"],
+      "@modals": ["app/modals"],
       "@pages/*": ["app/pages/*"],
       "@components": ["app/components"],
       "@types": ["app/types"]
