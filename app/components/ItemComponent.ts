@@ -14,7 +14,7 @@ export class ItemComponent extends BaseComponent {
   constructor(root: Locator) {
     super(root.page());
     this.root = root;
-    this.label = this.page.locator(".product-label");
+    this.label = this.root.locator(".product-label");
     this.nameLocator = this.root.locator(".product-item__title");
     this.codeLocator = this.root.locator(".product-item__code > span");
     this.addToFavoritesButtonLocator = this.root.locator(
