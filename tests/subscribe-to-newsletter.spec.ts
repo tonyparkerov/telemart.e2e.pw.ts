@@ -1,7 +1,7 @@
 import { test, expect } from "@fixtures/fixture";
 import { faker } from "@faker-js/faker";
 
-test.skip("#4. Subscribe to newsletter", async ({ app }) => {
+test("#4. Subscribe to newsletter", async ({ app }) => {
   const email = faker.internet.email();
 
   await app.mainPage.open();
