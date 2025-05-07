@@ -30,6 +30,14 @@ export function step<This, Args extends any[], Return>(message?: string) {
     }
 
     function replacementMethod(this: any, ...args: Args) {
+      // Check if we're in a test context by looking at the stack trace
+      const isInTest = new Error().stack?.includes("test.step") || false;
+
+      if (!isInTest) {
+        // If not in test context, just call the function directly
+        return target.call(this, ...args);
+      }
+
       const name =
         message ?? `${this.constructor.name}.${context.name as string}`;
 
