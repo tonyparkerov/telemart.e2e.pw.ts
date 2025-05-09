@@ -22,7 +22,9 @@ export class HeaderComponent extends BaseComponent {
 
   @step()
   async searchFor(searchQuery: string) {
+    const encodedSearchQuery = encodeURIComponent(searchQuery);
     await this.searchInputLocator.fill(searchQuery);
     await this.submitSearchButton.click();
+    await this.page.waitForURL(`**/search/${encodedSearchQuery}/`);
   }
 }

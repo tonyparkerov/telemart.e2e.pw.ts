@@ -54,6 +54,7 @@ export class ItemComponent extends BaseComponent {
 
   @step()
   async addToCart() {
+    await this.addToCartButtonLocator.waitFor({ state: "visible" });
     await this.addToCartButtonLocator.click();
     await this.page.waitForResponse("**/cart/update-product/");
   }
