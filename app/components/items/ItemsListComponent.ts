@@ -15,11 +15,11 @@ export class ItemsListComponent extends BaseComponent {
   }
 
   async getRandomItem() {
-    await this.itemLocator.first().waitFor({ state: "visible" });
     const allItemsLocators = await this.itemLocator.all();
     const randomArrIndex = faker.number.int({
       max: allItemsLocators.length - 1,
     });
+    await allItemsLocators[randomArrIndex].waitFor({ state: "visible" });
     return new ItemComponent(allItemsLocators[randomArrIndex]);
   }
 }
