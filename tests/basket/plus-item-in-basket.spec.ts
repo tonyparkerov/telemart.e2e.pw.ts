@@ -3,7 +3,7 @@ import { test, expect } from "@fixtures/fixture";
 test("#6.2. Increase item count in basket", async ({ app }) => {
   app.itemsPage.setCategory("iphone");
   await app.itemsPage.open();
-  const randomItem = await app.itemsPage.itemsList.getRandomItem();
+  const randomItem = await app.itemsPage.itemsList.getRandomAvailableItem();
   const itemPrice = await randomItem.getPrice();
 
   await randomItem.addToCart();

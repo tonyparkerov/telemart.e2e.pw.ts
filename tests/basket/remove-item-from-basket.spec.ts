@@ -3,12 +3,12 @@ import { test, expect } from "@fixtures/fixture";
 test("#6.3. Remove item from basket with 2 products", async ({ app }) => {
   app.itemsPage.setCategory("consoles");
   await app.itemsPage.open();
-  const randomConsole = await app.itemsPage.itemsList.getRandomItem();
+  const randomConsole = await app.itemsPage.itemsList.getRandomAvailableItem();
   await randomConsole.addToCart();
 
   app.itemsPage.setCategory("pc");
   await app.itemsPage.open();
-  const randomPC = await app.itemsPage.itemsList.getRandomItem();
+  const randomPC = await app.itemsPage.itemsList.getRandomAvailableItem();
   await randomPC.addToCart();
 
   const basketItems = await app.itemsPage.modals.basketModal.getAllItems();

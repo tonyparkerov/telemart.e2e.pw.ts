@@ -8,7 +8,8 @@ test(`#7. Order user data inputs prefilled with signed in user`, async ({
 
   signedInApp.itemsPage.setCategory("monitors");
   await signedInApp.itemsPage.open();
-  const randomItem = await signedInApp.searchPage.itemsList.getRandomItem();
+  const randomItem =
+    await signedInApp.searchPage.itemsList.getRandomAvailableItem();
   await randomItem.addToCart();
 
   await signedInApp.orderPage.open();

@@ -2,7 +2,7 @@ import { test, expect } from "@fixtures/fixture";
 
 test("#6.1. Add random iphone product to basket", async ({ app }) => {
   await app.itemsPage.open();
-  const randomItem = await app.itemsPage.itemsList.getRandomItem();
+  const randomItem = await app.itemsPage.itemsList.getRandomAvailableItem();
   await randomItem.addToCart();
   const basketItem = (await app.itemsPage.modals.basketModal.getAllItems())[0];
 
