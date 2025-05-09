@@ -4,6 +4,8 @@ import { WishListPage } from "@pages/WishListPage";
 import { SearchPage } from "@pages/SearchPage";
 import { ItemsPage } from "@pages/ItemsPage";
 import { Cookie } from "@types";
+import { UserProfilePage } from "@pages/UserProfilePage";
+import { OrderPage } from "@pages/OrderPage";
 
 export default class Application {
   private page: Page;
@@ -11,6 +13,8 @@ export default class Application {
   wishListPage: WishListPage;
   searchPage: SearchPage;
   itemsPage: ItemsPage;
+  userProfilePage: UserProfilePage;
+  orderPage: OrderPage;
 
   constructor(page: Page) {
     this.page = page;
@@ -18,6 +22,8 @@ export default class Application {
     this.wishListPage = new WishListPage(this.page);
     this.searchPage = new SearchPage(this.page);
     this.itemsPage = new ItemsPage(this.page);
+    this.userProfilePage = new UserProfilePage(this.page);
+    this.orderPage = new OrderPage(this.page);
   }
 
   waitForResponse(url: string) {

@@ -26,3 +26,12 @@ export type Cookie = {
   value: string;
   url: string;
 };
+
+export type UserData = {
+  lastName?: string;
+  firstName?: string;
+  middleName?: string;
+  dateOfBirth?: string;
+  email?: string;
+  phone?: string;
+};
