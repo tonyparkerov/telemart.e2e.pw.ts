@@ -18,6 +18,7 @@ export class BasketModal extends BaseModal {
   );
 
   async getAllItems() {
+    await this.modalLocator.waitFor({ state: "visible" });
     const allItemsLocators = await this.productItemLocator.all();
     const result = [];
     for (const locator of allItemsLocators) {

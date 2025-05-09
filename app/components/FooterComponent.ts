@@ -24,8 +24,8 @@ export class FooterComponent extends BaseComponent {
 
   @step()
   async openSocial(socialNetwork: SocialNetwork) {
-    await this.getSocialLocator(socialNetwork).click();
     const pagePromise = this.page.waitForEvent("popup");
+    await this.getSocialLocator(socialNetwork).click();
     const newTab = await pagePromise;
     return newTab;
   }
