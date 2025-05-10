@@ -105,17 +105,6 @@ npm run lint:fix
     └── playwright.yml       # Workflow for running tests and publishing reports
 ```
 
-## 📋 Test Cases
-
-The project includes tests for:
-- Search functionality
-- Wishlist operations
-- Newsletter subscription
-- Social media links
-- Authentication flows
-- Product filtering
-- Shopping basket operations
-
 ## 💡 Best Practices
 
 - **Page Object Model**: Each page is represented by a class with methods for interactions
@@ -137,12 +126,6 @@ The project now includes enhanced reporting features:
 
 The latest test report is available online at [GitHub Pages](https://tonyparkerov.github.io/telemart.e2e.pw.ts/).
 
-## 🧩 VS Code Integration
-
-For an optimal development experience, install these VS Code extensions:
-- [Playwright Test for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
 ## 🔄 CI/CD Integration
 
 The project uses GitHub Actions for continuous integration:
@@ -152,7 +135,3 @@ The project uses GitHub Actions for continuous integration:
 - Test results published to GitHub Pages
 - CTRF reporting for standardized test result tracking
 - Artifact storage for test reports
-
-## 📜 License
-
-ISC
