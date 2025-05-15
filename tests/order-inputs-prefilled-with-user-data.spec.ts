@@ -2,6 +2,7 @@ import { test, expect } from "@fixtures/fixture";
 
 test(`#7. Order user data inputs prefilled with signed in user`, async ({
   signedInApp,
+  cartController,
 }) => {
   await signedInApp.userProfilePage.open();
   const userData = await signedInApp.userProfilePage.getUserData();
@@ -10,7 +11,8 @@ test(`#7. Order user data inputs prefilled with signed in user`, async ({
   await signedInApp.itemsPage.open();
   const randomItem =
     await signedInApp.searchPage.itemsList.getRandomAvailableItem();
-  await randomItem.addToCart();
+  const randomItemId = await randomItem.getCode();
+  await cartController.addProductToCart(randomItemId);
 
   await signedInApp.orderPage.open();
   expect(userData.lastName).toBe(
@@ -25,4 +27,6 @@ test(`#7. Order user data inputs prefilled with signed in user`, async ({
   expect(userData.phone).toBe(
     await signedInApp.orderPage.getInputPrefilledValue("phone")
   );
+
+  await cartController.removeProductFromCart(randomItemId);
 });

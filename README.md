@@ -75,14 +75,23 @@ npm run lint:fix
 
 ```
 ├── app/                     # Page objects and application components
+│   ├── api/                 # API controllers and endpoints
+│   │   └── controllers/     # API controllers (Cart, etc.)
 │   ├── components/          # Reusable UI components
 │   │   ├── BaseComponent.ts # Abstract base class for all components
 │   │   ├── HeaderComponent.ts # Header component implementation
-│   │   └── ...              # Other component implementations
+│   │   ├── items/          # Item-related components
+│   │   │   ├── ItemComponent.ts # Individual item component
+│   │   │   └── BasketItemsComponent.ts # Basket items component
+│   │   └── filters/        # Filter components
+│   │       ├── PriceFilterComponent.ts
+│   │       └── CheckboxFilterComponent.ts
 │   ├── fixtures/            # Test fixtures
 │   │   └── fixture.ts       # Custom fixtures including app, signedInApp
 │   ├── modals/              # Modal dialog components
 │   ├── pages/               # Page objects
+│   │   ├── BasePage.ts      # Base page implementation
+│   │   ├── PagesWithItemsList.ts # Abstract class for pages with items
 │   │   ├── MainPage.ts      # Main page implementation
 │   │   ├── SearchPage.ts    # Search results page
 │   │   ├── WishListPage.ts  # Wishlist page
@@ -95,6 +104,8 @@ npm run lint:fix
 │   ├── filters/            # Product filter tests
 │   │   └── manufacturer-filter.spec.ts # Manufacturer filter tests
 │   ├── wishlist-page/      # Wishlist-related tests
+│   │   ├── add-random-item.spec.ts
+│   │   └── rename-wishlist.spec.ts
 │   ├── search.spec.ts      # Search functionality tests
 │   ├── subscribe-to-newsletter.spec.ts # Newsletter subscription tests
 │   └── open-social-media.spec.ts # Social media links tests
@@ -117,7 +128,7 @@ npm run lint:fix
 
 ## 📊 Reporting
 
-The project now includes enhanced reporting features:
+The project includes comprehensive reporting features:
 
 - **HTML Reports**: Playwright generates HTML reports after test runs, available at `playwright-report/index.html`
 - **GitHub Pages Integration**: The latest test report is published automatically to GitHub Pages
@@ -134,4 +145,5 @@ The project uses GitHub Actions for continuous integration:
 - ESLint checks to ensure code quality
 - Test results published to GitHub Pages
 - CTRF reporting for standardized test result tracking
-- Artifact storage for test reports
+- Environment variables securely managed through GitHub Actions variables
+- Parallel test execution for faster results
