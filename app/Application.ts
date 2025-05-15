@@ -37,4 +37,8 @@ export default class Application {
   async getCookies() {
     await this.page.context().cookies();
   }
+
+  getPage() {
+    return this.page;
+  }
 }
